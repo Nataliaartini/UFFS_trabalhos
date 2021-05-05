@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: #FFF0F5 !important;
+    background-color: #1C1C1C !important;
 }
 .row {
     margin: 0;
@@ -16,8 +16,24 @@ body {
     color: "#008080";
 }
 
+.bem_vindo{
+    margin-top: 50px;
+}
+
+.apresentacao {
+    margin-left: 200px;
+    margin-top: 100px;
+    font-size: larger;
+    color: #DB7093;
+}
+
+.image {
+    margin-right: 100px;
+}
+
 .container {
-    background-color: #FF6347;
+    background-color: #2e004e;
+    padding-top: 30px;
     margin-right: 250px;
     margin-left: 250px;
     margin-top: 30px;
@@ -29,7 +45,8 @@ body {
     margin-right: 30px;
     margin-left: 80px;
     margin-bottom: 30px;
-    background: #FFDAB9;
+    padding-top: 15px;
+    background: #FFFAFA;
 }
 
 .box2 {
@@ -38,7 +55,8 @@ body {
     margin-right: 30px;
     margin-left: 50px;
     margin-bottom: 30px;
-    background: #FFDAB9;
+    padding-top: 15px;
+    background: #FFFAFA;
 }
 
 .box3 {
@@ -47,5 +65,6 @@ body {
     margin-right: 15px;
     margin-left: 50px;
     margin-bottom: 30px;
-    background: #FFDAB9;
+    padding-top: 15px;
+    background: #FFFAFA;
 }
