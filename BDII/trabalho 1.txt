@@ -1,0 +1,31 @@
+CREATE TABLE log 
+    (uid integer NOT NULL, datahora timestamp NOT NULL, eid integer NOT NULL, 
+      PRIMARY KEY(uid, datahora,eid),
+        FOREIGN KEY(eid) REFERENCES product(eid));
+                 
+
+CREATE FUNCTION estoque() RETURNS trigger AS $$
+BEGIN
+    If OLD.quantity = 0 then
+        EXECUTE 'DELETE';
+    End If;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER ApagaDado after update
+    on stock for each statement EXECUTE PROCEDURE estoque();
+    
+CREATE FUNCTION gravalog() RETURNS trigger AS $$
+BEGIN
+    If OLD.quantity > NEW.quantity
+        RETURN NEW.datahora = timestamp.now;
+        RETURN NEW.uid = current.user;
+        RETURN NEW.eid = product.eid;
+    End If;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER gravalog after insert or update
+    on stock for each statement EXECUTE PROCEDURE gravalog();
