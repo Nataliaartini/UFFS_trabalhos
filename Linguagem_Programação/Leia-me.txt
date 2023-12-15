@@ -1,0 +1,32 @@
+Rode este comando para compilar o happy
+happy Parser.y
+
+
+Rode este comando para ter acesso as funções do programa
+ghci Main.hs
+
+
+As linhas abaixo iterpretam o comando e exibem os tokens interpretados
+parser $ lexer "10 - 1"
+parser $ lexer "10 * 1"
+parser $ lexer "10 / 2"
+parser $ lexer "! false"
+parser $ lexer "for x = 1 -> 2 : x * 2"
+
+
+
+As linhas abaixo utilizam a função "eval" para executar os calculos e mostrar a resposta, Esta é a parte do Interpreter.hs
+eval (Decrement (Num 10) (Num 1))
+eval (Multiply (Num 10) (Num 2))
+eval (Divide (Num 10) (Num 2))
+eval (Negate BFalse)
+eval (For (Var "i") (Num 1) (Num 2) (Multiply (Var "i") (Num 2)))
+
+
+
+As linhas abaixo fazem o TypeCheck, implementado no arquivo TypeChecker.hs
+typecheck (Decrement (Num 10) (Num 1))
+typecheck (Multiply (Num 10) (Num 2))
+typecheck (Divide (Num 10) (Num 2))
+typecheck (Negate BFalse)
+typecheck (For (Var "i") (Num 1) (Num 2) (Multiply (Var "i") (Num 2)))
